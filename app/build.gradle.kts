@@ -1,8 +1,17 @@
+import java.util.Properties
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-}
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 
+    id ("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+
+
+
+}
+//val key: String = gradleLocalProperties(rootDir).getProperty("API_KEY")
 android {
     namespace = "com.example.testappkevych"
     compileSdk = 34
@@ -18,7 +27,12 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+    //   Properties properties = new Properties()
     }
+
+
+
 
     buildTypes {
         release {
@@ -28,6 +42,13 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+//        buildTypes {
+//            getByName("debug") {
+//                buildConfigField("String", "key", key)
+//            }
+//        }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -66,4 +87,23 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+  //  implementation("com.android.tools.build:gradle:3.2.0")
+        //Hilt
+    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+
+
+    implementation ("com.squareup.retrofit2:converter-scalars:2.4.0")
+    // Retrofit with Kotlin serialization Converter
+
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    // Kotlin serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
