@@ -164,7 +164,7 @@ fun topBar(modifier: Modifier= Modifier, BigBarSize:Boolean){
         //  .clickable { size=!size }
         .animateContentSize()
         .padding(if (BigBarSize) 100.dp else 10.dp), horizontalArrangement = Arrangement.Absolute.Center, verticalAlignment = Alignment.Bottom){
-        Text("KEVYCH movie",fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Text("KEVYCH 2 movie",fontSize = 20.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = modifier.width(10.dp))
         Image(painter = painterResource(id = R.drawable.icon_tv) , contentDescription ="Icon", modifier = modifier.size(25.dp) )
     }

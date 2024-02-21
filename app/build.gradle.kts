@@ -15,7 +15,9 @@ plugins {
 android {
     namespace = "com.example.testappkevych"
     compileSdk = 34
-
+    buildFeatures {
+        buildConfig = true
+    }
     defaultConfig {
         applicationId = "com.example.testappkevych"
         minSdk = 24
@@ -27,7 +29,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
+        buildConfigField("String","API_KEY","\"ed8a7f6930a3121c20d22bbc89dba5c2\"")
     //   Properties properties = new Properties()
     }
 
