@@ -44,11 +44,19 @@ class MovieByIdViewModel @Inject constructor(
 
         }
     }
+    fun Retry(){
+        MovieUiState = MovieState.Loading
+        viewModelScope.launch {
+            getMovieByID()
+
+
+        }
+    }
 
     init {
         viewModelScope.launch {
             getMovieByID()
-            Log.d("CAT", "USE hilt")
+
 
         }
 

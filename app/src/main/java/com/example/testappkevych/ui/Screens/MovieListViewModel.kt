@@ -79,8 +79,17 @@ var popularPage =1
             }
         }
     }
+    fun retry(){
+        MovieListUIState = MovieListState.Loading
 
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                getMovieList()
 
+            }
+        }
+
+    }
     init{
         viewModelScope.launch {
             withContext(Dispatchers.IO){
