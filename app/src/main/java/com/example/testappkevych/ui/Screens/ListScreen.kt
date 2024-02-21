@@ -23,7 +23,9 @@ import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Card
@@ -61,6 +63,7 @@ import com.example.testappkevych.R
 import com.example.testappkevych.network.model.*
 import kotlinx.coroutines.launch
 import kotlin.reflect.KFunction0
+import kotlinx.coroutines.flow.collect
 
 @Composable
 fun MovieList(
