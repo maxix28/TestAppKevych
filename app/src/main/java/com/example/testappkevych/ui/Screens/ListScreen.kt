@@ -37,6 +37,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -60,7 +61,7 @@ fun MovieList( viewModel: MovieListViewModel = hiltViewModel<MovieListViewModel>
         Scaffold( topBar = { topBar(BigBarSize = size)}) { paddingValue ->
             Box(modifier = modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.primary)
+                .background(Color.Black)
                 .padding(paddingValue)){
 
 
@@ -90,9 +91,9 @@ fun onSuccess(state:MovieListState.Success,onMovieClick:(String)-> Unit,modifier
         Column (modifier = modifier
             .fillMaxSize()
             .padding() ){
-            Text("Trend", modifier = modifier.padding(horizontal = 10.dp), fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            Text("Trend", modifier = modifier.padding(horizontal = 10.dp), fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.White)
             List(state.MovieListTrend, onMovieClick  = onMovieClick)
-            Text("Popular", modifier = modifier.padding(horizontal = 10.dp), fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            Text("Popular", modifier = modifier.padding(horizontal = 10.dp), fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.White)
 
             List(state.MovieListPopular, onMovieClick= onMovieClick)
 
