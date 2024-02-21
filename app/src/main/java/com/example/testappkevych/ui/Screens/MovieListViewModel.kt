@@ -19,7 +19,7 @@ sealed interface MovieListState{
     object Loading: MovieListState
     object Error: MovieListState
 
-    data class Success( val MovieList : Movies): MovieListState
+    data class Success( val MovieListTrend : Movies,val MovieListPopular : Movies): MovieListState
 
 }
 @HiltViewModel
@@ -29,7 +29,7 @@ class MovieListViewModel @Inject constructor(private val movieRepository: MovieR
 
     suspend fun getMovieList(){
         try{
-            MovieListUIState =MovieListState.Success(movieRepository.getMovie())
+            MovieListUIState =MovieListState.Success( MovieListPopular =movieRepository.getMoviePopular(), MovieListTrend = movieRepository.getMovieTrend())
         }
         catch (e:Exception){
             MovieListUIState = MovieListState.Error
