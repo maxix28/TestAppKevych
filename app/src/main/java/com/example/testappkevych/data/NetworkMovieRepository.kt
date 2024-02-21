@@ -8,7 +8,9 @@ import com.example.testappkevych.network.model.Result
 import javax.inject.Inject
 private val key =BuildConfig.API_KEY
 class NetworkMovieRepository @Inject constructor(private val movieServiceApiInterface: MovieServiceApiInterface):MovieRepository {
-    override suspend fun getMoviePopular(): Movies = movieServiceApiInterface.getMoviePopular(apiKey = key)
-    override suspend fun getMovieTrend(): Movies = movieServiceApiInterface.getMovieTrend(apiKey = key)
+    override suspend fun getMoviePopular(page:String): Movies = movieServiceApiInterface.getMoviePopular(apiKey = key, page)
+
+
+    override suspend fun getMovieTrend(page:String): Movies = movieServiceApiInterface.getMovieTrend(apiKey = key,page)
     override suspend fun getMovieByID(id: String): Movie = movieServiceApiInterface.getMovieByID(id,apiKey = key)
 }

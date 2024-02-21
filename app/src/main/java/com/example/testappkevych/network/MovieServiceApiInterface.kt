@@ -16,10 +16,15 @@ interface MovieServiceApiInterface {
 //    suspend fun getMovieByID(@Path("id") id: String?): Movie
 
     @GET("3/movie/popular")
-    suspend fun getMoviePopular(@Query("api_key") apiKey: String): Movies
+    suspend fun getMoviePopular(
+        @Query("api_key") apiKey: String,
+        @Query("page") page: String
+    ): Movies
 
     @GET("3/trending/all/day")
-    suspend fun getMovieTrend(@Query("api_key") apiKey: String): Movies
+    suspend fun getMovieTrend(
+        @Query("api_key") apiKey: String,
+        @Query("page") page: String): Movies
 
     @GET("3/movie/{id}")
     suspend fun getMovieByID(
